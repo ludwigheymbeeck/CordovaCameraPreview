@@ -9,6 +9,7 @@
 
 - (void) startCamera:(CDVInvokedUrlCommand*)command;
 - (void) stopCamera:(CDVInvokedUrlCommand*)command;
+- (void) moveCamera:(CDVInvokedUrlCommand*)command;
 - (void) showCamera:(CDVInvokedUrlCommand*)command;
 - (void) hideCamera:(CDVInvokedUrlCommand*)command;
 - (void) switchCamera:(CDVInvokedUrlCommand*)command;

@@ -87,6 +87,33 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void) moveCamera:(CDVInvokedUrlCommand*)command {
+    NSLog(@"moveCamera");
+    CDVPluginResult *pluginResult;
+    
+    if (self.cameraRenderController != nil) {
+        
+        if (command.arguments.count == 4) {
+            CGFloat x = (CGFloat)[command.arguments[0] floatValue];
+            CGFloat y = (CGFloat)[command.arguments[1] floatValue];
+            CGFloat width = (CGFloat)[command.arguments[2] floatValue];
+            CGFloat height = (CGFloat)[command.arguments[3] floatValue];
+            
+            //move camera to new location
+            self.cameraRenderController.view.frame = CGRectMake(x, y, width, height);
+            
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        } else {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"moveCamera wrong number of arguments"];
+        }
+        
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Camera not started"];
+    }
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 - (void) showCamera:(CDVInvokedUrlCommand*)command {
     NSLog(@"showCamera");
     CDVPluginResult *pluginResult;
