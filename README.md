@@ -41,7 +41,7 @@ Show camera preview popup on top of the HTML.<br/>
   <info>Moves an existing camera preview to specified location with defined size.</info><br/>
   <i>Usage:</i><br/>
   <pre><code>
-      cordova.plugins.camerapreview.startCamera({x: 100, y: 100, width: 200, height:200});
+      cordova.plugins.camerapreview.moveCamera({x: 100, y: 100, width: 200, height:200});
   </code></pre>
 </p>
 <p>
